@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}FlexStore{% endblock %}</title>
+
+    importmap
+  {% block stylesheets %}{% endblock %}
+</head>
+
+
+
+  {% block javascripts %}
+    {% block importmap %}{{ importmap('app') }}{% endblock %}
+  {% endblock %}
+
+</body>
+</html>
