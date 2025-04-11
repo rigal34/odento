@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Attribute\Route;
 final class AproposController extends AbstractController
 {
     #[Route('/apropos', name: 'app_apropos')]
-    public function (): Response
+    public function apropos (): Response
     {
         return $this->render('apropos/index.html.twig', [
           
