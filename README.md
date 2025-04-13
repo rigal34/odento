@@ -23,6 +23,7 @@ Le projet a été créé dans le cadre d’un apprentissage guidé avec accompag
 ✅ Gestion des catégories (avec relation ManyToOne → Article)  
 ✅ Gestion des posts (blog)  
 ✅ **Upload d’images dans les posts via EasyAdmin**  
+✅ **Refonte visuelle des formulaires Login et Register avec Bootstrap 5 via YAML**  
 ✅ Gestion des utilisateurs avec sécurité (User + authentification)  
 ✅ Dashboard complet avec EasyAdmin  
 ✅ Migrations Doctrine  
@@ -37,6 +38,15 @@ Le projet a été créé dans le cadre d’un apprentissage guidé avec accompag
 - Stockage dans `public/images/`
 - Nom du fichier géré automatiquement
 - Image visible dans l’administration
+
+---
+
+## 🎨 Refonte des formulaires Login & Register
+
+- Les formulaires `login.html.twig` et `register.html.twig` utilisent désormais une structure **Bootstrap 5 complète**
+- Utilisation de `container`, `card`, `form-control`, `row`, `col`, etc.
+- Intégration cohérente avec le thème du site
+- **Meilleure expérience utilisateur** (visuelle + responsive)
 
 ---
 
@@ -122,6 +132,7 @@ odento/
 
 Projet conçu à des fins pédagogiques avec aide d’un professeur.  
 Toutes les entités, relations, migrations, et la configuration EasyAdmin ont été construites progressivement.  
+Les formulaires front ont été retravaillés à la main avec Bootstrap pour un meilleur rendu utilisateur.
 
 ---
 
