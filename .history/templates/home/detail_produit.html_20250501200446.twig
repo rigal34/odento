@@ -4,7 +4,7 @@
 
 {% block body %}
 <h1>page de detail produit</h1>
-{# <h1>{{ article.title }}</h1> #}
+<h1>{{ article.title }}</h1>
 <!-- reprise copier coller  -->
   <main class="main">
 
@@ -32,7 +32,7 @@
             <div class="product-images">
               <div class="main-image-container mb-3">
                 <div class="image-zoom-container">
-                  <img src="{{ asset('images/' ~ article.image) }}" alt="{{ article.title|default('Product Image') }}"class="img-fluid main-image drift-zoom" id="main-product-image" data-zoom="{{ asset('images/' ~ article.image) }}">
+                  <img src={{ article.i }} alt="Product Image" class="img-fluid main-image drift-zoom" id="main-product-image" data-zoom="assets/img/product/product-details-1.webp">
                 </div>
               </div>
 

@@ -43,7 +43,7 @@ final class CategorieController extends AbstractController
 
        
 
-        return $this->render('home/detail_produit.html.twig', [
+        return $this->render('home/detail_.html.twig', [
         
             'article' => $article,
         ]);
