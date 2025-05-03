@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PostController!{% endblock %}
+
+{% block body %}
+    {% for post in posts %}
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.content|raw }}</p>
+        <img src="{{ asset('images/' ~ post.image) }}" alt="Image de l'article" class="img-fluid" style="width: 200px; height: auto;">
+        <a href="{{ path('app_actu_detail', {'id': post.id}) }}" class="btn btn-primary" >Déail du post</a>
+        <hr>
+    {%endfor %}
+{% endblock %}

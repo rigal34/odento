@@ -4,18 +4,18 @@
 
 {% block body %}
 
-
+{# <h1>{{ article.title }}</h1> #}
 <!-- reprise copier coller  -->
   <main class="main">
 
     <!-- Page Title -->
     <div class="page-title light-background">
       <div class="container d-lg-flex justify-content-between align-items-center">
-        <h1 class="mb-2 mb-lg-0">Détails du produit</h1>
+        <h1 class="mb-2 mb-lg-0">Product Details</h1>
         <nav class="breadcrumbs">
           <ol>
-            <li><a href="{{ path('app_home') }}">Accueil</a></li>
-            <li class="current">Produit détaillé </li>
+            <li><a href="index.html">Home</a></li>
+            <li class="current">Product Details</li>
           </ol>
         </nav>
       </div>
@@ -58,10 +58,9 @@
                       }
                     }
                   </script>
-                  {# FORME DE CAROUSEL #}
                   <div class="swiper-wrapper">
                     <div class="swiper-slide thumbnail-item active" data-image="assets/img/product/product-details-1.webp">
-                       <img src="{{ asset('images/' ~ article.image) }}" alt="{{ article.title|default('Product Image') }}"class="img-fluid main-image drift-zoom" id="main-product-image" data-zoom="{{ asset('images/' ~ article.image) }}">
+                      <img src="assets/img/product/product-details-1.webp" alt="Product Thumbnail" class="img-fluid">
                     </div>
                     <div class="swiper-slide thumbnail-item" data-image="assets/img/product/product-details-2.webp">
                       <img src="assets/img/product/product-details-2.webp" alt="Product Thumbnail" class="img-fluid">
@@ -101,8 +100,8 @@
               <h1 class="product-title">Lorem Ipsum Wireless Noise Cancelling Headphones</h1>
 
               <div class="product-price-container mb-4">
-                <span class="current-price">{{ article.price }} €</span>
-                <span class="original-price">299.99 €</span>
+                <span class="current-price">$249.99</span>
+                <span class="original-price">$299.99</span>
                 <span class="discount-badge">-17%</span>
               </div>
 
