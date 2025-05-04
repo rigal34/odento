@@ -1,0 +1,244 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PostController!{% endblock %}
+
+
+{# AFFICHAGE DU DETAIL DE BLOG #}
+{# {% block body %}
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.content|raw }}</p>
+        <hr>
+        test
+{% endblock %} #}
+{% block body %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body class="blog-details-page">
+
+<header id="header" class="header position-relative">
+    
+   
+
+
+  </header>
+
+<main class="main">
+<!-- reprise////////////////////////////////////////////////////////////////////////// -->
+    <!-- Page Title -->
+    <div class="page-title light-background">
+      <div class="container d-lg-flex justify-content-between align-items-center">
+        <h1 class="mb-2 mb-lg-0">Blog Détails</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="{{path ('app_home')}}">accueil</a></li>
+            <li class="current">Blog Détails</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+   <div class="container">
+
+
+
+
+  <!-- Blog Details Section -->
+          <section id="blog-details" class="blog-details section">
+            <div class="container" data-aos="fade-up">
+
+              <article class="article">
+
+                <div class="post-img">
+                  <img src="assets/img/blog/blog-post-7.webp" alt="Featured blog image" class="img-fluid" loading="lazy">
+                </div>
+
+                <div class="article-content" data-aos="fade-up" data-aos-delay="100">
+                  <div class="meta-categories">
+                    <span class="category"><i class="bi bi-folder"></i> Technology</span>
+                    <span class="reading-time"><i class="bi bi-clock-history"></i> 8 min read</span>
+                  </div>
+
+                  <h1 class="title">The Future of Artificial Intelligence: Transforming Industries and Reshaping Society</h1>
+
+                  <div class="meta-top">
+                    <ul>
+                      <li class="d-flex align-items-center">
+                        <img src="assets/img/person/person-m-7.webp" alt="Author" class="author-img">
+                        <a href="blog-details.html">Sarah Anderson</a>
+                      </li>
+                      <li class="d-flex align-items-center">
+                        <i class="bi bi-calendar-date"></i>
+                        <time datetime="2025-02-13">Feb 13, 2025</time>
+                      </li>
+                      <li class="d-flex align-items-center">
+                        <i class="bi bi-chat-dots"></i>
+                        <a href="#comments">24 Comments</a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="content">
+                    <p class="lead">
+                      Artificial Intelligence has emerged as one of the most transformative technologies of our time, revolutionizing industries from healthcare to finance, and fundamentally changing how we live and work.
+                    </p>
+
+                    <p>
+                      In recent years, the advancement of AI technologies has accelerated at an unprecedented pace, bringing both exciting opportunities and unique challenges. This comprehensive analysis explores the current state of AI, its impact across various sectors, and what the future might hold for this revolutionary technology.
+                    </p>
+
+                    <h2>The Current State of AI Technology</h2>
+                    <p>
+                      Modern AI systems have achieved remarkable capabilities in areas such as:
+                    </p>
+                    <ul>
+                      <li>Natural Language Processing and Generation</li>
+                      <li>Computer Vision and Image Recognition</li>
+                      <li>Predictive Analytics and Decision Making</li>
+                      <li>Autonomous Systems and Robotics</li>
+                    </ul>
+
+                    <div class="content-image">
+                      <img src="assets/img/blog/blog-hero-2.webp" class="img-fluid" alt="AI Technology Implementation" loading="lazy">
+                      <figcaption>AI systems processing and analyzing complex data patterns</figcaption>
+                    </div>
+
+                    <h2>Transforming Industries</h2>
+                    <p>
+                      From healthcare diagnostics to financial forecasting, AI is revolutionizing traditional business models and creating new opportunities for innovation and efficiency. Organizations worldwide are leveraging AI to streamline operations, enhance customer experiences, and drive growth.
+                    </p>
+
+                    <blockquote>
+                      <p>
+                        "Artificial Intelligence is not just another technological advancement; it's a fundamental shift in how we approach problem-solving and decision-making across every industry and sector of society."
+                      </p>
+                      <cite>Dr. Rachel Chen, AI Research Director</cite>
+                    </blockquote>
+
+                    <h2>Ethical Considerations and Future Challenges</h2>
+                    <p>
+                      As AI continues to evolve, important questions arise about privacy, security, and the ethical implications of increasingly autonomous systems. Addressing these challenges while fostering innovation will be crucial for the sustainable development of AI technologies.
+                    </p>
+
+                    <div class="content-image-split">
+                      <div class="row g-4">
+                        <div class="col-md-6">
+                          <img src="assets/img/blog/blog-post-square-1.webp" class="img-fluid" alt="AI Ethics Discussion" loading="lazy">
+                        </div>
+                        <div class="col-md-6">
+                          <img src="assets/img/blog/blog-post-square-2.webp" class="img-fluid" alt="AI Future Prospects" loading="lazy">
+                        </div>
+                      </div>
+                    </div>
+
+                    <h2>Looking Ahead</h2>
+                    <p>
+                      The future of AI promises even more groundbreaking developments, from advanced cognitive systems to seamless human-AI collaboration. As we move forward, the key will be balancing technological progress with ethical considerations and societal impact.
+                    </p>
+                  </div>
+
+                  <div class="meta-bottom">
+                    <div class="article-tags">
+                      <i class="bi bi-tags"></i>
+                      <ul class="tags">
+                        <li><a href="#">Artificial Intelligence</a></li>
+                        <li><a href="#">Technology</a></li>
+                        <li><a href="#">Innovation</a></li>
+                        <li><a href="#">Future</a></li>
+                      </ul>
+                    </div>
+
+                    <div class="article-share">
+                      <span>Share:</span>
+                      <a href="#"><i class="bi bi-twitter"></i></a>
+                      <a href="#"><i class="bi bi-facebook"></i></a>
+                      <a href="#"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                  </div>
+                </div>
+
+              </article>
+
+            </div>
+          </section><!-- /Blog Details Section -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</main><!-- End #main -->
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('assets/js/main.js') }}"></script>
+{% endblock %}

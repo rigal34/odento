@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PostController!{% endblock %}
+{# AFFICHAGE DU DETAIL DE BLOG #}
+{% block body %}
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.content|raw }}</p>
+        <hr>
+        test
+{% endblock %}
