@@ -64,36 +64,53 @@
           </div><!-- End Google Maps -->
 
           <div class="col-lg-6">
-           {{ form_start(contactForm, {'attr': {'class': 'php-email-form', 'data-aos': 'fade-up', 'data-aos-delay': '400'}}) }}
-              <div class="row gy-4">
+    {{ form_start(contactForm, {'attr': {'class': 'php-email-form', 'data-aos': 'fade-up', 'data-aos-delay': '400'}}) }}
+        <div class="row gy-4">
 
-                <div class="col-md-6">
+            <div class="col-md-6">
                 {{ form_row(contactForm.nom) }}
-                </div>
+            </div>
 
-                <div class="col-md-6 ">
-                  {{ form_row(contactForm.email) }}
-                </div>
+            <div class="col-md-6 ">
+                {{ form_row(contactForm.email) }}
+            </div>
 
-                <div class="col-md-12">
-                  {{ form_row(contactForm.sujet) }}
-                </div>
+            <div class="col-md-12">
+                {{ form_row(contactForm.sujet) }}
+            </div>
 
-                <div class="col-md-12">
-                  {{ form_row(contactForm.message) }}
-                </div>
+            <div class="col-md-12">
+                {{ form_row(contactForm.message) }}
+            </div>
 
+            <div class="col-md-12 text-center">
+                {# Les divs de messages du thème sont commentées #}
+                {#
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+                #}
+
+                {# REMPLACE CECI PAR TON BOUTON D'ORIGINE SI "btn btn-primary" NE CONVIENT PAS #}
+                <button type="submit" class="btn btn-primary">Envoyer le Message</button> 
+                {# Exemple si ton bouton original était plus simple : #}
+                {# <button type="submit">Envoyer le Message</button> #}
+            </div>
+
+        </div>
+    {{ form_end(contactForm) }}
+</div>
+{# Assure-toi qu'il n'y a plus le bloc de messages redondant après cette div #}
                 <div class="col-md-12 text-center">
-                  {# <div class="loading">Loading</div>
+                  <div class="loading">Loading</div>
                   <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div> #}
+                  <div class="sent-message">Your message has been sent. Thank you!</div>
 
-                  <button type="submit">Message envoyer</button>
+                  <button type="submit">Send Message</button>
                 </div>
 
               </div>
-
-            {{ form_end(contactForm) }}
+            </form>
           </div><!-- End Contact Form -->
 
         </div>

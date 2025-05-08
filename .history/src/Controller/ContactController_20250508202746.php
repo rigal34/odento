@@ -27,6 +27,13 @@ final class ContactController extends AbstractController
         
         $form->handleRequest($request);
 
+        // ---- C'EST ICI QU'ON AJOUTE LE CODE DE DÉBOGAGE ----
+        if ($form->isSubmitted() && !$form->isValid()) {
+            // dd() va afficher le contenu des erreurs et arrêter le script ici.
+            dd($form->getErrors(true, true)); 
+        }
+        // ---- FIN DU CODE DE DÉBOGAGE ----
+
         
         if ($form->isSubmitted() && $form->isValid()) {
             

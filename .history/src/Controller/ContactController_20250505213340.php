@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-
+// --- TOUS TES 'USE' STATEMENTS ICI ---
 use App\Form\ContactFormType; 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request; 
@@ -11,15 +11,14 @@ use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Mailer\MailerInterface; 
 use Symfony\Component\Mime\Email; 
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
-
+// --- FIN DES 'USE' ---
 
 final class ContactController extends AbstractController
-{ 
+{ // Accolade ouvrante de la CLASSE
 
     #[Route('/contact', name: 'app_contact')]
-    
     public function contact(Request $request, MailerInterface $mailer): Response
-    { 
+    { // Accolade ouvrante de la METHODE contact
 
         
         $form = $this->createForm(ContactFormType::class);
@@ -36,7 +35,7 @@ final class ContactController extends AbstractController
         } 
 
         
-        return $this->render('home/contact.html.twig', [ 
+        return $this->render('contact/index.html.twig', [ 
             'contactForm' => $form->createView(), 
         ]);
 

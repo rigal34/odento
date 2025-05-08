@@ -65,35 +65,49 @@
 
           <div class="col-lg-6">
            {{ form_start(contactForm, {'attr': {'class': 'php-email-form', 'data-aos': 'fade-up', 'data-aos-delay': '400'}}) }}
-              <div class="row gy-4">
+        <div class="row gy-4">
 
-                <div class="col-md-6">
+            <div class="col-md-6">
                 {{ form_row(contactForm.nom) }}
-                </div>
+            </div>
 
-                <div class="col-md-6 ">
-                  {{ form_row(contactForm.email) }}
-                </div>
+            <div class="col-md-6 ">
+                {{ form_row(contactForm.email) }}
+            </div>
 
-                <div class="col-md-12">
-                  {{ form_row(contactForm.sujet) }}
-                </div>
+            <div class="col-md-12">
+                {{ form_row(contactForm.sujet) }}
+            </div>
 
-                <div class="col-md-12">
-                  {{ form_row(contactForm.message) }}
+            <div class="col-md-12">
+                {{ form_row(contactForm.message) }}
+            </div>
+
+            <div class="col-md-12 text-center">
+                {# Ces divs sont pour le script validate.js de ton thème.
+                   On les garde pour l'instant, mais la validation principale
+                   et les messages de succès viendront de Symfony. #}
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+
+                <button type="submit" class="btn btn-primary">Envoyer le Message</button> {# J'ai mis une classe Bootstrap standard #}
+            </div>
+
+        </div>
+    {{ form_end(contactForm) }}
                 </div>
 
                 <div class="col-md-12 text-center">
-                  {# <div class="loading">Loading</div>
+                  <div class="loading">Loading</div>
                   <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div> #}
+                  <div class="sent-message">Your message has been sent. Thank you!</div>
 
-                  <button type="submit">Message envoyer</button>
+                  <button type="submit">Send Message</button>
                 </div>
 
               </div>
-
-            {{ form_end(contactForm) }}
+            </form>
           </div><!-- End Contact Form -->
 
         </div>
