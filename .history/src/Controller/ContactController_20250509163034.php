@@ -38,8 +38,8 @@ final class ContactController extends AbstractController
          
             
              $email = (new Email())
-                 ->from('rigalbruno2@gmail.com') 
-                 ->to('rigalbruno2@gmail.com') 
+                 ->from('rigalrigal2014@outlook.fr') 
+                 ->to('rigalrigal2014@outlook.fr') 
                  ->subject('Nouveau message de contact Odento-SHOP: ' . $sujet)
                  ->text("Vous avez reçu un nouveau message de contact :\n\nDe: $nom <$emailExpediteur>\nSujet: $sujet\n\nMessage:\n$messageUtilisateur")
                  ->html(

@@ -38,8 +38,9 @@ final class ContactController extends AbstractController
          
             
              $email = (new Email())
-                 ->from('rigalbruno2@gmail.com') 
-                 ->to('rigalbruno2@gmail.com') 
+                 ->from('contact@odento-shop.com') 
+                 ->to('exemple@mail.com') 
+                 ->replyTo($emailExpediteur) 
                  ->subject('Nouveau message de contact Odento-SHOP: ' . $sujet)
                  ->text("Vous avez reçu un nouveau message de contact :\n\nDe: $nom <$emailExpediteur>\nSujet: $sujet\n\nMessage:\n$messageUtilisateur")
                  ->html(
@@ -51,13 +52,17 @@ final class ContactController extends AbstractController
                  );
          
           
-             try {
-                 $mailer->send($email);
-                 $this->addFlash('success', 'Votre message a bien été envoyé ! Nous vous répondrons rapidement.');
-             } catch (TransportExceptionInterface $e) {
-                $this->addFlash('error', 'Oups ! Une erreur est survenue lors de l\'envoi du message. Erreur: ' . $e->getMessage());
-                 
-             }
+                 try {
+                    $mailer->send($email);
+                    $this->addFlash('success', 'Votre message a bien été envoyé ! Nous vous répondrons rapidement.');
+                } catch (\Throwable $e) { // Attrape TOUT type d'erreur
+                    $errorMessage = 'EXCEPTION! Type: ' . get_class($e) . ' - Message: ' . $e->getMessage();
+                    if (method_exists($e, 'getDebug') && $e->getDebug()) {
+                        $errorMessage .= ' - Debug: ' . $e->getDebug();
+                    }
+                    $this->addFlash('error', $errorMessage);
+                    dd($e); // Arrête et "dumpe" l'exception
+                }
              return $this->redirectToRoute('app_contact', [], Response::HTTP_SEE_OTHER); 
         } 
 

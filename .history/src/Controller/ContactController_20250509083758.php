@@ -36,10 +36,11 @@ final class ContactController extends AbstractController
              $sujet = $data['sujet'];
              $messageUtilisateur = $data['message'];
          
-            
+             // Construis l'email
              $email = (new Email())
-                 ->from('rigalbruno2@gmail.com') 
-                 ->to('rigalbruno2@gmail.com') 
+                 ->from('contact@odento-shop.com') // Adresse d'expéditeur pour ton site
+                 ->to('TON_ADRESSE_RECEPTION_ADMIN@example.com') // <<< REMPLACE ÇA par ton email où tu veux recevoir
+                 ->replyTo($emailExpediteur) // Pour répondre directement à l'utilisateur
                  ->subject('Nouveau message de contact Odento-SHOP: ' . $sujet)
                  ->text("Vous avez reçu un nouveau message de contact :\n\nDe: $nom <$emailExpediteur>\nSujet: $sujet\n\nMessage:\n$messageUtilisateur")
                  ->html(
@@ -50,15 +51,16 @@ final class ContactController extends AbstractController
                      "<p>" . nl2br(htmlspecialchars($messageUtilisateur)) . "</p>"
                  );
          
-          
+             // Envoie l'email
              try {
                  $mailer->send($email);
                  $this->addFlash('success', 'Votre message a bien été envoyé ! Nous vous répondrons rapidement.');
              } catch (TransportExceptionInterface $e) {
-                $this->addFlash('error', 'Oups ! Une erreur est survenue lors de l\'envoi du message. Erreur: ' . $e->getMessage());
-                 
+                 $this->addFlash('error', 'Oups ! Une erreur est survenue lors de l\'envoi du message. Veuillez réessayer plus tard.');
+                 // Pour le développement, tu pourrais vouloir voir plus de détails :
+                 // $this->addFlash('error', 'Erreur envoi email : ' . $e->getMessage() . ' Debug: ' . $e->getDebug());
              }
-             return $this->redirectToRoute('app_contact', [], Response::HTTP_SEE_OTHER); 
+             return $this->redirectToRoute('app_contact'); 
         } 
 
         
