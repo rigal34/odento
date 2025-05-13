@@ -151,7 +151,135 @@
             </div> {# Fermeture de .blog-comments-4 #}
 
 {# ===== FIN DE LA SECTION D'AFFICHAGE DES COMMENTAIRES ===== #}
-                    
+                    <!-- Replies Container -->
+                    <div class="replies-container">
+                      <!-- Reply #1 -->
+                      <div class="comment-box reply">
+                        <div class="comment-wrapper">
+                          <div class="avatar-wrapper">
+                            <img src="{{asset('assets/img/person/person-m-9.webp') }}" alt="Avatar" loading="lazy">
+                            <span class="status-indicator"></span>
+                          </div>
+
+                          <div class="comment-content">
+                            <div class="comment-header">
+                              <div class="user-info">
+                                <h4>Maria Rodriguez</h4>
+                                <span class="time-badge">
+                                  <i class="bi bi-clock"></i>
+                                  1 hour ago
+                                </span>
+                              </div>
+                              <div class="engagement">
+                                <span class="likes">
+                                  <i class="bi bi-heart"></i>
+                                  8
+                                </span>
+                              </div>
+                            </div>
+
+                            <div class="comment-body">
+                              <p>Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae.</p>
+                            </div>
+
+                            <div class="comment-actions">
+                              <button class="action-btn like-btn" aria-label="Like comment">
+                                <i class="bi bi-heart"></i>
+                                <span>Like</span>
+                              </button>
+                              <button class="action-btn reply-btn" aria-label="Reply to comment">
+                                <i class="bi bi-chat"></i>
+                                <span>Reply</span>
+                              </button>
+                              <button class="action-btn share-btn" aria-label="Share comment">
+                                <i class="bi bi-share"></i>
+                                <span>Share</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Reply #2 -->
+                      <div class="comment-box reply">
+                        <div class="comment-wrapper">
+                          <div class="avatar-wrapper">
+                            <img src="{{asset('assets/img/person/person-f-9.webp') }}" alt="Avatar" loading="lazy">
+                            <span class="status-indicator"></span>
+                          </div>
+
+                          <div class="comment-content">
+                            <div class="comment-header">
+                              <div class="user-info">
+                                <h4>Alex Chen</h4>
+                                <span class="time-badge">
+                                  <i class="bi bi-clock"></i>
+                                  30 minutes ago
+                                </span>
+                              </div>
+                              <div class="engagement">
+                                <span class="likes">
+                                  <i class="bi bi-heart"></i>
+                                  5
+                                </span>
+                              </div>
+                            </div>
+
+                            <div class="comment-body">
+                              <p>Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.</p>
+                            </div>
+
+                            <div class="comment-actions">
+                              <button class="action-btn like-btn" aria-label="Like comment">
+                                <i class="bi bi-heart"></i>
+                                <span>Like</span>
+                              </button>
+                              <button class="action-btn reply-btn" aria-label="Reply to comment">
+                                <i class="bi bi-chat"></i>
+                                <span>Reply</span>
+                              </button>
+                              <button class="action-btn share-btn" aria-label="Share comment">
+                                <i class="bi bi-share"></i>
+                                <span>Share</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Comment #2 -->
+                  <div class="comment-thread">
+                    <div class="comment-box">
+                      <div class="comment-wrapper">
+                        <div class="avatar-wrapper">
+                          <img src="{{asset('assets/img/person/person-f-7.webp') }}" alt="Avatar" loading="lazy">
+                          <span class="status-indicator"></span>
+                        </div>
+
+                        <div class="comment-content">
+                          <div class="comment-header">
+                            <div class="user-info">
+                              <h4>Emily Watson</h4>
+                              <span class="time-badge">
+                                <i class="bi bi-clock"></i>
+                                3 hours ago
+                              </span>
+                            </div>
+                            <div class="engagement">
+                              <span class="likes">
+                                <i class="bi bi-heart"></i>
+                                15
+                              </span>
+                            </div>
+                          </div>
+
+                          <div class="comment-body">
+                            <p>Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.</p>
+                          </div>
+
+                          <div class="comment-actions">
                             {# <button class="action-btn like-btn" aria-label="Like comment">
                               <i class="bi bi-heart"></i>
                               <span>Like</span>
@@ -164,12 +292,28 @@
                               <i class="bi bi-share"></i>
                               <span>Share</span>
                             </button> #}
-                        
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </section><!-- /Blog Comments Section -->
+
+           <!-- Blog Comment Form Section -->
+          <section id="blog-comment-form" class="blog-comment-form section">
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
 
 
 
           {# ===== FIN DE LA SECTION D'AFFICHAGE DES COMMENTAIRES ===== #}
-
+{# Le code statique qui suivait pour les réponses et autres commentaires a été supprimé. #}
+{# La section suivante dans ton fichier doit être celle du formulaire de soumission : #}
 
         </div> {# Fermeture du <div class="container" data-aos="fade-up" data-aos-delay="100"> de la section blog-comments #}
     </section><section id="blog-comment-form" class="blog-comment-form section">
