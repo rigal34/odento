@@ -68,13 +68,11 @@ final class PostController extends AbstractController
         }
 
         $allComments = $post->getComments();
-        $approvedComments = $allComments->filter(function(Comment $comment) {
-            return $comment->isApproved() === true;
-        });
+        
         return $this->render('post/detail.html.twig', [
             'post' => $post,
             'comment_form' => $form->createView(),
-            'comments' =>  $approvedComments,
+            'comments' => $comments, 
         ]);
     }
 }

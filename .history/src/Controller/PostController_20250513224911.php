@@ -43,7 +43,7 @@ final class PostController extends AbstractController
                 $comment->setAuthor($user);
                 $comment->setPost($post);
                 $comment->setCreatedAt(new \DateTimeImmutable());
-                $comment->setIsApproved(false); // Par défaut, le commentaire n'est pas approuvé en attente de ma validation
+                $comment->setIsApproved(false); // Par défaut, le commentaire n'est pas approuvé en attente de ma
 
                 $entityManager->persist($comment);
                 $entityManager->flush();
@@ -67,14 +67,11 @@ final class PostController extends AbstractController
             }
         }
 
-        $allComments = $post->getComments();
-        $approvedComments = $allComments->filter(function(Comment $comment) {
-            return $comment->isApproved() === true;
-        });
+        $comments = $post->getComments(); 
         return $this->render('post/detail.html.twig', [
             'post' => $post,
             'comment_form' => $form->createView(),
-            'comments' =>  $approvedComments,
+            'comments' => $comments, 
         ]);
     }
 }
