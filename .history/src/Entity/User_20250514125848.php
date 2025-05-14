@@ -156,7 +156,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
     public function __toString(): string
     {
-        
+        // Retourne l'email de l'utilisateur, ou un texte par défaut si l'email est vide.
+        // Si tu as un champ comme 'firstName' ou 'username', tu peux l'utiliser ici.
         return $this->getEmail() ?: 'Utilisateur inconnu'; 
     }
    

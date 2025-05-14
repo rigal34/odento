@@ -38,6 +38,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Gestion des produits', 'fas fa-list', Article::class);
         yield MenuItem::linkToCrud('Gestion des catégories', 'fas fa-tags', Category::class);
         yield MenuItem::linkToCrud('Gestion des Posts', 'fas fa-file-alt', Post::class);
-        yield MenuItem::linkToCrud('Gestion des Commentaires', 'fas fa-comments', Comment::class);
+        y
     }
 }

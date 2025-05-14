@@ -147,7 +147,8 @@ class Post
 
     public function __toString(): string
 {
-    
+    // Retourne le titre du post, ou un texte par défaut si le titre est vide.
+    // Assure-toi que ta méthode getTitle() existe et retourne bien une chaîne ou null.
     return $this->getTitle() ?: 'Post sans titre';
 }
    

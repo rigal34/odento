@@ -6,8 +6,8 @@ use App\Entity\Article;
 use App\Entity\Category;
 use App\Entity\Post;
 use App\Entity\Comment;
-// use App\Entity\CateElectronique;
-// use EasyCorp\Bundle\EasyAdminBundle\Attribute\AdminDashboard;
+//usp\Entity\CateElectronique;
+use EasyCorp\Bundle\EasyAdminBundle\Attribute\AdminDashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -38,6 +38,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Gestion des produits', 'fas fa-list', Article::class);
         yield MenuItem::linkToCrud('Gestion des catégories', 'fas fa-tags', Category::class);
         yield MenuItem::linkToCrud('Gestion des Posts', 'fas fa-file-alt', Post::class);
-        yield MenuItem::linkToCrud('Gestion des Commentaires', 'fas fa-comments', Comment::class);
+        
     }
 }
