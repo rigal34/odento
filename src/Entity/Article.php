@@ -35,6 +35,13 @@ class Article
     #[ORM\ManyToOne(inversedBy: 'articles')]
     private ?Category $category = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?array $images = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $slug = null;
+
+    
     
 
 
@@ -134,8 +141,34 @@ class Article
         return $this;
     }
 
+    public function getImages(): ?array
+    {
+        return $this->images;
+    }
+
+    public function setImages(?array $images): static
+    {
+        $this->images = $images;
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(?string $slug): static
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+
    
    
 
    
 }
+

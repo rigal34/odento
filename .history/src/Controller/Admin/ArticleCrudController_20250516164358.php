@@ -1,0 +1,47 @@
+<?php
+
+namespace App\Controller\Admin;
+
+use App\Entity\Article;
+use Doctrine\ORM\EntityManagerInterface;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use phpDocumentor\Reflection\Types\Resource_;
+
+class ArticleCrudController extends AbstractCrudController
+{
+    public function __construct(Sl)
+    {
+    }
+
+    public static function getEntityFqcn(): string
+    {
+        return Article::class;
+    }
+
+    public function configureFields(string $pageName): iterable
+    {
+        return [
+        
+            TextField::new('title'),
+            TextEditorField::new('content'),
+            ImageField::new('image')->setBasePath('images/')->setUploadDir('public/images/')->setRequired(false),
+            ImageField::new('images')
+             ->setBasePath('images/')
+             ->setUploadDir('public/images/')
+             ->setRequired(false)
+             ->setFormTypeOption('attr', ['multiple' => true]),
+            NumberField::new('price')->setRequired(false),
+            AssociationField::new('category')
+        ];
+    }
+
+   
+   
+}
+ 
