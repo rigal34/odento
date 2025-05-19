@@ -1,0 +1,228 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Panier | Odento{% endblock %}
+
+{% block body %}
+ 
+   <!-- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title light-background">
+      <div class="container d-lg-flex justify-content-between align-items-center">
+        <h1 class="mb-2 mb-lg-0">Votre panier</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="{{ path('app_home') }}">Accueil</a></li>
+            <li class="current">Panier</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Cart Section -->
+    <section id="cart" class="cart section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row g-4">
+           {# COLONNE PRINCIPALE POUR LA LISTE DES ARTICLES DU PANIER (col-lg-8) #}
+          <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+            <div class="cart-items">
+              <div class="cart-header d-none d-lg-block">
+                <div class="row align-items-center gy-4">
+                  <div class="col-lg-6">
+                    <h5>Produit</h5>
+                  </div>
+                  <div class="col-lg-2 text-center">
+                    <h5>Prix</h5>
+                  </div>
+                  <div class="col-lg-2 text-center">
+                    <h5>Quantité</h5>
+                  </div>
+                  <div class="col-lg-2 text-center">
+                    <h5>Total</h5>
+                  </div>
+                </div>
+              </div>
+
+    <form action="{{ path('app_cart_update') }}" method="post"> 
+
+                 {% if detailed_cart_items is defined and detailed_cart_items is not empty %}
+                 {% for item in detailed_cart_items %}
+
+
+              <div class="cart-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="row align-items-center gy-4">
+                  <div class="col-lg-6 col-12 mb-3 mb-lg-0">
+                    <div class="product-info d-flex align-items-center">
+                      <div class="product-image">
+                       {% if item.product.image %}
+                         <img src="{{ asset('images/' ~ item.product.image) }}" alt="{{ item.product.title }}" class="img-fluid" loading="lazy" style="width: 80px; height: auto; margin-right: 15px;">
+                        {% else %}
+                        <img src="https://via.placeholder.com/80" alt="{{ item.product.title }}" class="img-fluid" loading="lazy" style="width: 80px; height: auto; margin-right: 15px;">
+                        {% endif %}
+                      </div>
+                      <div class="product-details">
+                        <h6 class="product-title">{{ item.product.title }}</h6>
+                        <div class="product-meta">
+                          
+                        </div>
+                       <a href="{{ path('app_remove_cart', {'id': item.product.id}) }}" class="remove-item btn btn-sm btn-outline-danger mt-2" type="button" disabled>
+                        <i class="bi bi-trash"></i> Supprimer
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-2 text-center">
+                    <div class="price-tag">
+                     <span class="current-price">{{ item.product.price|number_format(2, ',', ' ') }} €</span>
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-2 text-center">
+                     <div class="quantity-selector"> {#style="display: flex; align-items: center; justify-content: center;"> #}
+                    {# Pour l'instant, on affiche juste la quantité. Les boutons +/- sont pour plus tard. #}
+                     {# <span>{{ item.quantity }}</span> #}
+                    
+                    <button class="quantity-btn decrease"><i class="bi bi-dash"></i></button>
+                    <input type="number" 
+                    name="quantities[{{ item.product.id }}]"
+                    class="quantity-input" 
+                    value="{{ item.quantity }}"
+                    min="0"
+                     max="10">
+                    <button class="quantity-btn increase">
+                    <i class="bi bi-plus"></i>
+                    </button>
+                     
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-2 text-center mt-3 mt-lg-0">
+                    <div class="item-total">
+                      <span>{{ item.lineTotal|number_format(2, ',', ' ') }} €</span>
+                    </div>
+                  </div>
+                </div>
+              </div>{% endfor %}
+        {% else %}
+             <div class="text-center p-4">
+                   <p>Votre panier est actuellement vide.</p>          
+              </div>
+        {% endif %}             
+                        
+              
+
+              {# Actions globales du panier (coupon, update, clear) #}
+
+             <div class="cart-actions mt-4">
+                <div class="row g-3">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="coupon-form">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Code promo">
+                                    <button class="btn btn-accent" type="button">Appliquer</button>
+                            </div>
+                        </div>
+                    </div>
+                  <div class="col-lg-6 col-md-6 text-md-end">
+
+                    <button type="submit" class="btn btn-outline-accent me-2" {% if not detailed_cart_items or detailed_cart_items is empty %}disabled{% endif %}>
+                    <i class="bi bi-arrow-clockwise"></i> Mettre à jour le panier
+                   </button>
+
+                    <a href="{{ path('app_cart_clear')}}" class="btn btn-outline-danger">
+                      <i class="bi bi-trash"></i> Vider le panier
+                    </a>
+                  </div>
+                </div>
+              </div>
+       </form>
+
+            </div>
+          </div>
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="cart-summary">
+              <h4 class="summary-title">Résumé de la commande</h4>
+
+              <div class="summary-item">
+                <span class="summary-label">Sous-total</span>
+                 <span class="summary-value">{{ total_cart_amount|number_format(2, ',', ' ') }} €</span>
+              </div>
+
+              <div class="summary-item shipping-item">
+                <span class="summary-label">Livraison</span>
+                <div class="shipping-options">
+                 <small class="text-muted">Calculée à l'étape suivante.</small>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="shipping" id="standard" checked="">
+                    <label class="form-check-label" for="standard">
+                      Standard Delivery - $4.99
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="shipping" id="express">
+                    <label class="form-check-label" for="express">
+                      Express Delivery - $12.99
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="shipping" id="free">
+                    <label class="form-check-label" for="free">
+                      Free Shipping (Orders over $300)
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="summary-item">
+                <span class="summary-label">TVA (estimée)</span>
+                <span class="summary-value">$27.00</span>
+              </div>
+
+              <div class="summary-item discount">
+                <span class="summary-label">Réduction</span>
+                <span class="summary-value">-$0.00</span>
+              </div>
+
+              <div class="summary-total">
+                <span class="summary-label">Total</span>
+                 <span class="summary-value">{{ total_cart_amount|number_format(2, ',', ' ') }} €</span> 
+              </div>
+
+              <div class="checkout-button">
+                <a href="#" class="btn btn-accent w-100">
+                  Passer à la caisse <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+
+              <div class="continue-shopping">
+              
+               
+                 <a href="{{ path('app_home') }}" class="btn btn-link w-100">
+                  <i class="bi bi-arrow-left"></i> Continuer mes achats
+                </a>
+                
+              </div>
+     
+              <div class="payment-methods">
+                <p class="payment-title">Nous acceptons</p>
+                <div class="payment-icons">
+                  <i class="bi bi-credit-card-2-front"></i>
+                  <i class="bi bi-paypal"></i>
+                  <i class="bi bi-wallet2"></i>
+                  <i class="bi bi-apple"></i>
+                  <i class="bi bi-google"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Cart Section -->
+
+  </main>
+  
+{% endblock %}
