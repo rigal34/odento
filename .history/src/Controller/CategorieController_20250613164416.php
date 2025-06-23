@@ -1,0 +1,70 @@
+<?php
+
+namespace App\Controller;
+
+use App\Entity\Article;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Attribute\Route;
+use Doctrine\ORM\EntityManagerInterface;
+use App\Entity\Category;
+use App\Repository\ArticleRepository;
+use App\Repository\CategoryRepository;
+use Knp\Component\Pager\PaginatorInterface;
+use Symfony\Component\HttpFoundation\Request;
+
+final class CategorieController extends AbstractController
+{
+  #[Route('/categorie', name: 'app_categorie')]
+    public function categorie(
+        CategoryRepository $categoryRepository,
+        ArticleRepository  $articleRepository,
+        Request            $request,
+        PaginatorInterface $paginator
+    ): Response {
+        $categoryId = $request->query->getInt('id', 0);
+        $searchTerm = trim($request->query->get('productSearch', ''));
+
+        $qb = $articleRepository->createQueryBuilder('a')
+            ->leftJoin('a.category', 'c')
+            ->addSelect('c');
+
+        if ($categoryId > 0) {
+            $qb->andWhere('c.id = :catId')
+               ->setParameter('catId', $categoryId);
+        }
+
+        if ($searchTerm !== '') { LIKE :term')
+               ->setParameter('term', '%'.$searchTerm.'%');
+        }
+
+        $qb->orderBy('a.createdAt', 'DESC');
+
+        $articlesPagination = $paginator->paginate(
+            $qb,
+            $request->query->getInt('page', 1),
+            2
+        );
+
+        $parents = $categoryRepository->findBy(['parent' => null]);
+
+        return $this->render('home/categorie.html.twig', [
+            'categories' => $parents,
+            'articles'   => $articlesPagination,
+        ]);
+    }
+
+    #[Route('/produit/{id}-{slug}', name: 'app_produit')]
+     public function produit(Article $article): Response
+   
+    {
+
+       
+
+        return $this->render('home/detail_produit.html.twig', [
+        
+            'article' => $article,
+        ]);
+    }
+
+}

@@ -1,0 +1,63 @@
+{% if pageCount > 1 %}
+<section id="category-pagination" class="category-pagination section">
+  <div class="container">
+    <nav class="d-flex justify-content-center" aria-label="Page navigation">
+      <ul>
+
+        {# ← Bouton Précédent #}
+        {% if previous is defined %}
+          <li>
+            <a href="{{ path(route, query|merge({ (pageParameterName): previous })) }}"
+               aria-label="Previous page">
+              <i class="bi bi-arrow-left"></i>
+              <span class="d-none d-sm-inline">Précédent</span>
+            </a>
+          </li>
+        {% endif %}
+
+        {# Numéros de page #}
+        {% for page in pagesInRange %}
+          {% if page == current %}
+            <li><a href="#" class="active">{{ page }}</a></li>
+          {% else %}
+            <li>
+              <a href="{{ path(route, query|merge({ (pageParameterName): page })) }}">
+                {{ page }}
+              </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+
+        {# … ellipsis si écart trop grand #}
+        {% if pagesInRange|first > 2 %}
+          <li class="ellipsis">…</li>
+        {% endif %}
+        {% if pagesInRange|last < pageCount - 1 %}
+          <li class="ellipsis">…</li>
+        {% endif %}
+
+        {# Boutons dernières pages #}
+        {% if pageCount not in pagesInRange %}
+          <li>
+            <a href="{{ path(route, query|merge({ (pageParameterName): pageCount })) }}">
+              {{ pageCount }}
+            </a>
+          </li>
+        {% endif %}
+
+        {# → Bouton Suivant #}
+        {% if next is defined %}
+          <li>
+            <a href="{{ path(route, query|merge({ (pageParameterName): next })) }}"
+               aria-label="Next page">
+              <span class="d-none d-sm-inline">Suivant</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </li>
+        {% endif %}
+
+      </ul>
+    </nav>
+  </div>
+</section>
+{% endif %}

@@ -1,0 +1,51 @@
+<?php
+
+namespace App\Controller;
+use App\Entity\Order;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
+
+#[IsGranted("IS_AUTHENTICATED_FULLY")]
+
+final class AccountController extends AbstractController
+{
+    #[Route('/account', name: 'app_account')]
+   
+    public function compte(): Response
+    {
+        //recuperer l'utilisateur connecté si il y en a un
+        $user = $this->getUser();
+        /** @var \App\Entity\User $user */
+         
+        if (!$user) {
+           
+            $this->addFlash('warning', 'Vous devez être connecté pour accéder à cette page.');
+            return $this->redirectToRoute('app_login'); 
+        }
+
+        $orders = $user->getOrders(); 
+
+        return $this->render('account/CompteUtilisateur.html.twig', [
+            'controller_name' => 'Mon Espace Compte',
+            'user' => $user,
+            'orders' => $orders,
+        ]);
+    }
+   #[Route('/compte/commande/{id}', name: 'app_account_order_detail', methods: ['GET'])]
+
+    public function orderDetail((Order $order)): Response
+    {
+      if ($order-> getUser() !== $this->getUser()){
+        $this->addFlash('danger', 'Accès non autorisé à cette commande.');
+        return $this->redirectToRoute('app_account_index');
+
+      }
+
+      return $this->render('account/order_detail.html.twig', [
+        'controller_name' => 'Détail de la Commande #' . $order->getId(),
+        'order' => $order,
+    ]);
+    }
+}

@@ -1,0 +1,126 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détail de la Commande #{{ order.id }} | Odento{% endblock %}
+
+{% block body %}
+<main class="main">
+
+    <div class="page-title light-background">
+        <div class="container d-lg-flex justify-content-between align-items-center">
+            
+            <h1 class="mb-2 mb-lg-0">Détail de la Commande{{ order.id }}</h1> 
+            <nav class="breadcrumbs">
+                <ol>
+                    <li><a href="{{ path('app_home') }}">Accueil</a></li>
+                    <li class="current">Confirmation de commande</li>
+                    <li><a href="{{ path('app_account_index') }}">Mon Compte</a></li>
+                     <li class="current">Commande #{{ order.id }}</li>
+                </ol>
+            </nav>
+        </div>
+    </div><section id="order-confirmation" class="order-confirmation section">
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+            <div class="order-confirmation-1">
+                <div class="confirmation-header text-center" data-aos="fade-up">
+                 <h2>Détails de votre Commande</h2>
+                    <div class="success-icon mb-4">
+                        <i class="bi bi-check-circle-fill"></i>
+                    </div>
+                    <h2>Commande passée avec succès</h2>
+                    <p class="lead">Merci pour votre achat. Nous avons bien reçu votre commande et nous la traitons actuellement.</p>
+                    <div class="order-number mt-3 mb-4">
+                        <span>Commande #</span>
+                        <strong>{{ order.id }}</strong> 
+                        <span class="mx-2">•</span>
+                        <span>Passée le {{ order.createdAt|date("d F Y à H:i") }}</span>
+                        <span class="mx-2">•</span>
+                        <span class="status processing">Statut : {{ order.status }}</span>
+                    </div>
+                </div>
+
+                <div class="order-details p-4 mb-4" data-aos="fade-up" data-aos-delay="150">
+                    <div class="row">
+                        <div class="col-md-6 mb-4 mb-md-0">
+                            <h4>Livrée à :</h4>
+                            <address class="mt-3">
+                               
+                                <strong>{{ order.customerFirstName|capitalize }} {{ order.customerLastName|upper }}</strong><br>
+                                {{ order.shippingAddress }}<br>
+                                {% if order.shippingApartment %}
+                                    {{ order.shippingApartment }}<br>
+                                {% endif %}
+                                {{ order.shippingZipCode }} {{ order.shippingCity|upper }}<br>
+                                {% if order.shippingCountry == 'FR' %}France{% else %}{{ order.shippingCountry }}{% endif %}<br>
+                                {% if order.customerPhone %}
+                                    <i class="bi bi-telephone-fill me-1 text-muted small"></i>{{ order.customerPhone }}
+                                {% endif %}
+                            </address>
+                            
+                        </div>
+                        <div class="col-md-6">
+                           <h4>Informations de contact :</h4>
+                            <div class="payment-info mt-3">
+                               <p>Email : {{ order.customerEmail }}</p>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="order-summary mb-4" data-aos="fade-up" data-aos-delay="200">
+                     <h4>Articles Commandés</h4>
+                    <div class="order-items mt-3">
+                        
+                            {% for item in order.orderItems %}
+                                <div class="item-row d-flex mb-3 border-bottom pb-3">
+                                     <div class="item-image" style="flex: 0 0 80px; margin-right:15px;">
+                                        
+                                        
+                                        {% if item.productArticle and item.productArticle.image %}
+                                            <img src="{{ asset('images/' ~ item.productArticle.image) }}" alt="{{ item.productName }}" class="img-fluid" loading="lazy">
+                                        {% else %}
+                                            <img src="https://via.placeholder.com/80" alt="{{ item.productName }} (image indisponible)" class="img-fluid">
+                                        {% endif %}
+                                    
+                                    
+                                    </div>
+                                    <div class="item-details" style="flex-grow:1;">
+                                        <h5>{{ item.productName }}</h5> 
+                                       
+                                        <div class="quantity-price d-flex justify-content-between">
+                                            <span>Quantité: {{ item.quantity }}</span> 
+                                            <span>Prix unitaire : {{ item.productPrice|number_format(2, ',', ' ') }} €</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <p>Aucun article dans cette commande.</p>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="order-totals mt-4">
+                       
+                        <div class="d-flex justify-content-between py-2 total-row">
+                            <strong>Total Payé</strong>
+                            <strong>{{ order.totalAmount|number_format(2, ',', ' ') }} €</strong> 
+                        </div>
+                    </div>
+                </div>
+
+                <div class="next-steps text-center p-4" data-aos="fade-up" data-aos-delay="250">
+                    <h4>Et ensuite ?</h4> 
+                    <p>Vous recevrez un e-mail de confirmation prochainement à l'adresse : <strong>{{ order.customerEmail }}</strong></p> {# Utilise la propriété de order #}
+                    {# ... (tracking info) ... #}
+                    <div class="action-buttons">
+                        <a href="{{ path('app_home') }}" class="btn btn-primary me-3 mb-2 mb-md-0">
+                            <i class="bi bi-bag me-2"></i>Poursuivre les achats
+                        </a>
+                        
+                    </div>
+                </div>
+                {# ... (help-contact) ... #}
+            </div>
+        </div>
+    </section></main>
+{% endblock %}
