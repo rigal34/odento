@@ -16,33 +16,8 @@ class ArticleRepository extends ServiceEntityRepository
         parent::__construct($registry, Article::class);
     }
 
- public function findArticlesQueryBuilder(int $categoryId, string $searchTerm, string $priceOrder): QueryBuilder
-    {
-        $qb = $this->createQueryBuilder('a')
-            ->leftJoin('a.category', 'c')
-            ->addSelect('c');
 
-        if ($categoryId > 0) {
-            $qb->andWhere('c.id = :catId')
-                ->setParameter('catId', $categoryId);
-        }
-
-        if ($searchTerm !== '') {
-            $qb->andWhere('a.title LIKE :term')
-                ->setParameter('term', '%'.$searchTerm.'%');
-        }
-
-        if (in_array($priceOrder, ['asc', 'desc'], true)) {
-            $qb->orderBy('a.price', strtoupper($priceOrder));
-        } else {
-            $qb->orderBy('a.createdAt', 'DESC');
-        }
-        
-        return $qb;
-    }
-}
-
-
+    
     //    /**
     //     * @return Article[] Returns an array of Article objects
     //     */
@@ -67,4 +42,4 @@ class ArticleRepository extends ServiceEntityRepository
     //            ->getOneOrNullResult()
     //        ;
     //    }
-
+}

@@ -51,9 +51,6 @@ final class CategorieController extends AbstractController
         ]);
     }
 
-
-
-    
     #[Route('/produit/{id}-{slug}', name: 'app_produit')]
      public function produit(Article $article): Response
    

@@ -32,7 +32,12 @@ final class CategorieController extends AbstractController
          $qb = $articleRepository->findArticlesQueryBuilder($categoryId, $searchTerm, $priceOrder);
       
             
-       
+        // 3. Application du tri : prix ou date
+        if (in_array($priceOrder, ['asc', 'desc'], true)) {
+            $qb->orderBy('a.price', strtoupper($priceOrder));
+        } else {
+            $qb->orderBy('a.createdAt', 'DESC');
+        }
 
         // 4. Pagination
         $articlesPagination = $paginator->paginate(
@@ -51,9 +56,6 @@ final class CategorieController extends AbstractController
         ]);
     }
 
-
-
-    
     #[Route('/produit/{id}-{slug}', name: 'app_produit')]
      public function produit(Article $article): Response
    
