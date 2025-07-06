@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Atelier JS 1</title>
+</head>
+<body>
+
+    <h1>Le DOM et JavaScript</h1>
+
+    <p id="message-special">Ce paragraphe a une carte d'identité.</p>
+
+    <script>
+        // --- C'est ici que notre code JavaScript vit ---
+
+        // 1. On demande au "document" (la page entière) de nous trouver l'élément
+        //    qui a la carte d'identité (id) "message-special".
+        const paragrapheSpecial = document.getElementById('message-special');
+
+        // 2. On utilise console.log() pour "regarder" ce qu'on a attrapé.
+        //    C'est l'équivalent du "var_dump" ou "dd" pour le JavaScript.
+        console.log(paragrapheSpecial);
+
+    </script>
+
+</body>
+</html>

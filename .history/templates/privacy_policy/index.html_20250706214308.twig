@@ -1,0 +1,147 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PrivacyPolicyController!{% endblock %}
+
+{% block body %}
+<main class="main">
+<!-- Page Title -->
+    <div class="page-title light-background">
+      <div class="container d-lg-flex justify-content-between align-items-center">
+        <h1 class="mb-2 mb-lg-0">Politique de Confidentialité</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="{{ path('app_home') }}">Accueil</a></li>
+            <li class="current">Politique de Confidentialité</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+<!-- Privacy Section -->
+    <section id="privacy" class="privacy section">
+
+      <div class="container" data-aos="fade-up">
+        <!-- Header -->
+        <div class="privacy-header" data-aos="fade-up">
+          <div class="header-content">
+            <div class="last-updated">Date d'entrée en vigueur : 27 février 2025</div>
+            <h1>Politique de Confidentialité</h1>
+            <p class="intro-text">Cette Politique de Confidentialité décrit comment nous collectons, utilisons, traitons et divulguons vos informations, y compris les données personnelles, dans le cadre de votre accès et de votre utilisation de nos services.</p>
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="privacy-content" data-aos="fade-up">
+          <!-- Introduction -->
+          <div class="content-section">
+            <h2>1. Introduction</h2>
+            <p>Lorsque vous utilisez nos services, vous nous confiez vos informations. Nous sommes conscients de cette grande responsabilité et nous nous efforçons de protéger vos données tout en vous en laissant le contrôle.</p>
+            <p>Cette Politique de Confidentialité vise à vous aider à comprendre quelles informations nous collectons, pourquoi nous les collectons, et comment vous pouvez mettre à jour, gérer, exporter et supprimer vos données.</p>
+          </div>
+
+          <!-- Information Collection -->
+          <div class="content-section">
+            <h2>2. Informations que nous collectons</h2>
+            <p>Nous collectons des informations afin de fournir de meilleurs services à nos utilisateurs. Les types d'informations que nous collectons incluent :</p>
+
+            <h3>2.1 Informations que vous nous fournissez</h3>
+            <p>Lorsque vous créez un compte ou utilisez nos services, vous nous fournissez des données personnelles, notamment :</p>
+            <ul>
+              <li>Votre nom et vos coordonnées</li>
+              <li>Identifiants de compte</li>
+              <li>Informations de paiement, le cas échéant</li>
+              <li>Préférences de communication</li>
+            </ul>
+
+            <h3>2.2 Informations collectées automatiquement</h3>
+            <p>Nous collectons et stockons automatiquement certaines informations lorsque vous utilisez nos services :</p>
+            <ul>
+              <li>Informations sur l'appareil et identifiants</li>
+              <li>Journaux d'activité et statistiques d'utilisation</li>
+              <li>Informations de localisation, si activées</li>
+              <li>Type et paramètres du navigateur</li>
+            </ul>
+          </div>
+
+          <!-- Use of Information -->
+          <div class="content-section">
+            <h2>3. Comment nous utilisons vos informations</h2>
+            <p>Nous utilisons les informations que nous collectons pour fournir, maintenir et améliorer nos services. Plus précisément, nous utilisons vos informations pour :</p>
+            <ul>
+              <li>Fournir et personnaliser nos services</li>
+              <li>Traiter les transactions et envoyer les informations associées</li>
+              <li>Envoyer des notifications et des mises à jour concernant nos services</li>
+              <li>Maintenir la sécurité et vérifier l'identité</li>
+              <li>Analyser et améliorer nos services</li>
+            </ul>
+          </div>
+
+          <!-- Information Sharing -->
+          <div class="content-section">
+            <h2>4. Partage et divulgation des informations</h2>
+            <p>Nous ne partageons pas les données personnelles avec des entreprises, organisations ou individus extérieurs à notre société, sauf dans les cas suivants :</p>
+
+            <h3>4.1 Avec votre consentement</h3>
+            <p>Nous partagerons vos données personnelles avec des entreprises, organisations ou individus extérieurs à notre société lorsque nous aurons obtenu votre consentement.</p>
+
+            <h3>4.2 Pour des raisons légales</h3>
+            <p>Nous partagerons vos données personnelles si nous avons la conviction raisonnable qu'un accès, une utilisation, une conservation ou une divulgation de ces informations est nécessaire pour :</p>
+            <ul>
+              <li>Respecter toute loi, réglementation, procédure légale applicable ou demande gouvernementale exécutoire.</li>
+              <li>Appliquer les Conditions d'Utilisation applicables</li>
+              <li>Détecter, prévenir ou autrement traiter les fraudes, les problèmes de sécurité ou techniques</li>
+              <li>Protéger les droits, la propriété ou la sécurité de nos utilisateurs contre tout préjudice.</li>
+            </ul>
+          </div>
+
+          <!-- Data Security -->
+          <div class="content-section">
+            <h2>5. Sécurité des données</h2>
+            <p>We work hard to protect our users from unauthorized access to or unauthorized alteration, disclosure, or destruction of information we hold. In particular:</p>
+            <ul>
+              <li>We encrypt our services using SSL</li>
+              <li>We review our information collection, storage, and processing practices</li>
+              <li>We restrict access to personal information to employees who need that information</li>
+            </ul>
+          </div>
+
+          <!-- Your Rights -->
+          <div class="content-section">
+            <h2>6. Your Rights and Choices</h2>
+            <p>You have certain rights regarding your personal information, including:</p>
+            <ul>
+              <li>The right to access your personal information</li>
+              <li>The right to correct inaccurate information</li>
+              <li>The right to request deletion of your information</li>
+              <li>The right to restrict or object to our processing of your information</li>
+            </ul>
+          </div>
+
+          <!-- Policy Updates -->
+          <div class="content-section">
+            <h2>7. Changes to This Policy</h2>
+            <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the effective date at the top.</p>
+            <p>Your continued use of our services after any changes to this Privacy Policy constitutes your acceptance of such changes.</p>
+          </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="privacy-contact" data-aos="fade-up">
+          <h2>Contact Us</h2>
+          <p>If you have any questions about this Privacy Policy or our practices, please contact us:</p>
+          <div class="contact-details">
+            <p><strong>Email:</strong> privacy@example.com</p>
+            <p><strong>Address:</strong> 123 Privacy Street, Security City, 12345</p>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Privacy Section -->
+
+
+
+
+
+
+    </main>
+{% endblock %}
