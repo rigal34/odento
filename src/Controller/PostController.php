@@ -19,7 +19,7 @@ final class PostController extends AbstractController
     #[Route('/actualites', name: 'app_actu')]
     public function actu(PostRepository $postRepository): Response
     {
-        return $this->render('post/postindex.html.twig', [
+        return $this->render('post/postIndex.html.twig', [
             'posts' => $postRepository->findBy([], ['createdAt' => 'DESC']),
         ]);
     }
