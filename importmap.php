@@ -38,6 +38,16 @@ return [
     'bootstrap-select' => [
         'version' => '1.13.18',
     ],
+    'bootstrap-select/dist/css/bootstrap-select.min.css' => [
+        'version' => '1.13.18',
+        'type' => 'css',
+    ],
+    'bootstrap-select/dist/js/bootstrap-select.min.js' => [
+        'version' => '1.13.18',
+    ],
+    'bootstrap-select/dist/js/i18n/defaults-fr_FR.js' => [
+        'version' => '1.13.18',
+    ],
     'jquery' => [
         'version' => '3.7.1',
     ],
